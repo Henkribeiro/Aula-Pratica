@@ -223,20 +223,34 @@
     }
 }
 
-        async function loadData() {
-            try {
-                // Tenta carregar os arquivos locais
-                const [resPolos, resAlunos] = await Promise.all([
-                    fetch('polos.json'),
-                    fetch('alunos.json')
-                ]);
-                polos = await resPolos.json();
-                alunos = await resAlunos.json();
-                populatePolos();
-            } catch (error) {
-                showMessage("Erro ao carregar arquivos JSON. Verifique se eles existem.", "error");
-            }
+      async function loadData() {
+    try {
+        console.log('Iniciando carregamento...');
+        
+        const [resPolos, resAlunos] = await Promise.all([
+            fetch('polos.json'),
+            fetch('alunos.json')
+        ]);
+        
+        console.log('Status polos:', resPolos.status);
+        console.log('Status alunos:', resAlunos.status);
+        
+        if (!resPolos.ok || !resAlunos.ok) {
+            throw new Error(`HTTP error! Polos: ${resPolos.status}, Alunos: ${resAlunos.status}`);
         }
+        
+        polos = await resPolos.json();
+        alunos = await resAlunos.json();
+        
+        console.log('Polos carregados:', polos);
+        console.log('Alunos carregados:', alunos);
+        
+        populatePolos();
+    } catch (error) {
+        console.error('Erro detalhado:', error);
+        showMessage("Erro ao carregar arquivos JSON. Verifique se eles existem.", "error");
+    }
+}
 
         function populatePolos() {
             poloSelect.innerHTML = '<option value="">Selecione seu polo</option>';
@@ -333,4 +347,5 @@
         loadData();
     </script>
 </body>
+
 </html>
