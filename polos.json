@@ -1,7 +1,9 @@
 [
   { "id": "recife", "nome": "Recife", "lat": -8.0476, "lng": -34.8770 },
   { "id": "olinda", "nome": "Olinda", "lat": -8.0089, "lng": -34.8553 },
+  { "id": "paulista", "nome": "Uninassau Bloco - B", "lat": -8.0544, "lng": -34.9020 }
 ]
+
 
 
 
