@@ -228,8 +228,8 @@
         console.log('Iniciando carregamento...');
         
         const [resPolos, resAlunos] = await Promise.all([
-            fetch("https://cdn.jsdelivr.net/gh/Henkribeiro/Aula-Pratica@main/polos.json?v=" + Date.now()),
-            fetch("https://cdn.jsdelivr.net/gh/Henkribeiro/Aula-Pratica@main/alunos.json?v=" + Date.now())
+            fetch(https://cdn.jsdelivr.net/gh/Henkribeiro/Aula-Pratica@latest/polos.json),
+            fetch(https://cdn.jsdelivr.net/gh/Henkribeiro/Aula-Pratica@latest/alunos.json)
         ]);
         
         console.log('Status polos:', resPolos.status);
@@ -349,5 +349,6 @@
 </body>
 
 </html>
+
 
 
